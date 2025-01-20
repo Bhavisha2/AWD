@@ -9,7 +9,25 @@
             padding: 0;
             color: #333;
         }
+ .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: right;
+        }
+             .header .links {
+            display: flex;
+            gap: 15px; /* Spacing between links */
+        }
 
+        .header .links a {
+            text-decoration: none;
+            color: #005f73;
+            font-weight: bold;
+        }
+
+        .header .links a:hover {
+            text-decoration: underline;
+        }
         h2 {
             text-align: center;
             color: #005f73;
@@ -52,6 +70,14 @@
             margin-top: 30px;
         }
     </style>
+    <div class="header">
+    <div class="links">
+        <a href="style.html">CSS Math</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    </div>
 </head>
 <body>
 
