@@ -13,6 +13,26 @@
             color: #333;
             align-items: center;
         }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: right;
+        }
+             .header .links {
+            display: flex;
+            gap: 15px; /* Spacing between links */
+        }
+
+        .header .links a {
+            text-decoration: none;
+            color: #005f73;
+            font-weight: bold;
+        }
+
+        .header .links a:hover {
+            text-decoration: underline;
+        }
+        
         h1 {
             color: #005f73;
         }
@@ -29,6 +49,14 @@
             color: #333;
         }
     </style>
+    <div class="header">
+    <div class="links">
+        <a href="style.html">CSS Math</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    </div>
 </head>
 <body>
     <h1>My Hobbies</h1>
