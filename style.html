@@ -24,6 +24,7 @@
       margin: 10px 0;
       color: #ECF0F1;
       font-family: monospace;
+      text-align: left;
     }
     #options {
       display: flex;
@@ -38,6 +39,7 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
+      text-align: center;
       user-select: none;
     }
     .option:hover {
@@ -52,21 +54,21 @@
       border-radius: 5px;
       margin: 0 5px;
       color: #ECF0F1;
+      font-style: italic;
     }
-    .droppable span {
-      display: inline-block;
-    }
-    button {
+    #submit-btn {
       background-color: #1ABC9C;
       color: white;
+      padding: 10px 20px;
       border: none;
-      padding: 10px 15px;
       border-radius: 5px;
+      font-weight: bold;
       cursor: pointer;
       font-size: 16px;
+      margin-top: 20px;
     }
-    button:hover {
-      background-color: #16A085;
+    #submit-btn:hover {
+      background-color:#16A085;
     }
   </style>
 </head>
@@ -74,52 +76,37 @@
 
 <div id="exercise">
   <h2>Exercise</h2>
-  <p>Drag and drop the correct CSS math function to calculate the width of a div.</p>
+  <p>Select the correct CSS math function to calculate the width of a div.</p>
   <div id="code-box">
     <code>
       #div1 {<br>
-        &nbsp;&nbsp;width: <span class="droppable" id="target"><span>______</span></span>(100% - 50px);<br>
+        &nbsp;&nbsp;width: <span class="droppable">______</span>(100% - 50px);<br>
       }
     </code>
   </div>
 
   <div id="options">
-    <div class="option" draggable="true" ondragstart="drag(event)" id="calc">calc</div>
-    <div class="option" draggable="true" ondragstart="drag(event)" id="max">max</div>
-    <div class="option" draggable="true" ondragstart="drag(event)" id="min">min</div>
-    <div class="option" draggable="true" ondragstart="drag(event)" id="average">average</div>
+    <label>
+      <input type="radio" name="math-function" value="calc">
+      <span class="option">calc</span>
+    </label>
+    <label>
+      <input type="radio" name="math-function" value="max">
+      <span class="option">max</span>
+    </label>
+    <label>
+      <input type="radio" name="math-function" value="min">
+      <span class="option">min</span>
+    </label>
+    <label>
+      <input type="radio" name="math-function" value="average">
+      <span class="option">average</span>
+    </label>
   </div>
 
-  <button onclick="checkAnswer()">Submit Answer</button>
+  <!-- Submit Answer Button -->
+  <button id="submit-btn">Submit Answer</button>
 </div>
-
-<script>
-  function allowDrop(event) {
-    event.preventDefault();
-  }
-
-  function drag(event) {
-    event.dataTransfer.setData("text", event.target.id);
-  }
-
-  function drop(event) {
-    event.preventDefault();
-    const data = event.dataTransfer.getData("text");
-    event.target.innerText = data;
-  }
-
-  function checkAnswer() {
-    const answer = document.getElementById("target").innerText;
-    if (answer === "calc") {
-      alert("Correct! The calc() function is used to perform calculations in CSS.");
-    } else {
-      alert("Incorrect. Please try again.");
-    }
-  }
-
-  document.getElementById("target").addEventListener("dragover", allowDrop);
-  document.getElementById("target").addEventListener("drop", drop);
-</script>
 
 </body>
 </html>
