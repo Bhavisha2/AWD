@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motorbike Business Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f9;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .form-footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Motorbike Business Form</h1>
+  <form>
+    <!-- Text Input -->
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required><br><br>
+
+    <!-- Email -->
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+    <!-- Password -->
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Create a password" required><br><br>
+
+    <!-- Phone -->
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required><br><br>
+
+    <!-- Date -->
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob"><br><br>
+
+
+    <!-- Color -->
+      <label for="color">Choose Bike Color</label>
+      <input type="color" id="color" name="color"><br><br>
+
+    <!-- File -->
+      <label for="bikeImage">Upload Bike Photo</label>
+      <input type="file" id="bikeImage" name="bikeImage"><br><br>
+
+    <!-- Number -->
+      <label for="quantity">Number of Bikes</label>
+      <input type="number" id="quantity" name="quantity" min="1" max="10"><br><br>
+
+
+    <!-- Range -->
+      <label for="priceRange">Price Range (in Kshs)</label>
+      <p>Price Ranges between 100,000 to 180,000</p>
+      <input type="range" id="priceRange" name="priceRange" min="100000" max="180000"><br><br>
+
+    <!-- Search -->
+      <label for="search">Search Bike Models</label>
+      <input type="search" id="search" name="search" placeholder="Search for a bike"><br><br>
+
+
+    <!-- Radio -->
+      <label>Preferred Payment Method</label><br>
+      <input type="radio" id="creditCard" name="payment" value="Credit Card">
+      <label for="creditCard">Credit Card</label>
+      <input type="radio" id="cash" name="payment" value="Cash">
+      <label for="cash">Cash</label><br><br>
+
+
+    <!-- Checkbox -->
+      <input type="checkbox" id="newsletter" name="newsletter">
+      <label for="newsletter">Subscribe to Newsletter</label><br><br>
+
+ 
+    <!-- Date-Time Local -->
+        <label for="pickup">Preferred Pickup Date and Time</label>
+        <input type="datetime-local" id="pickup" name="pickup"><br><br>
+
+
+    <!-- Hidden Input -->
+    <label for="fname">Motorbike Business Name:</label><input type="hidden" name="formType" value="motorbikeBusiness">
+    <input type="text" id="name" name="name"><br><br>
+    <input type="hidden" name="formType" value="Bmotors">
+    <input type="submit" value="Submit"><br><br>
+    
+    <!-- Week -->
+      <label for="deliveryWeek">Preferred Delivery Week</label>
+      <input type="week" id="deliveryWeek" name="deliveryWeek"><br><br>
+
+
+    <!-- Month -->
+      <label for="purchaseMonth">Month of Purchase</label>
+      <input type="month" id="purchaseMonth" name="purchaseMonth"><br><br>
+
+
+    <!-- URL -->
+      <label for="website">Official Website</label>
+      <input type="url" id="website" name="website" placeholder="Enter your official website"><br><br>
+    
+
+    <!-- Image Button -->
+      <label for="infoImage">Click for Info</label>
+      <input type="image" src="https://via.placeholder.com/100" alt="Info Button"><br><br>
+
+   <!-- Submit -->
+    <input type="submit" value="Submit Form">
+    <input type="reset" value="Reset Form">
+
+    <!-- Button -->
+    <div class="form-footer">
+      <input type="button" value="Learn More">
+    </div>
+  </form>
+</body>
+</html>
