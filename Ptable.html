@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREMIER LEAGUE TABLE</title>
+    <style>
+        th {
+            color: grey;
+        }
+        td {
+            color: white;
+        }
+        .horizontal-line td {
+        border-bottom: 0.2px solid lightgray;
+        padding: 0;
+        }
+        td img {
+        vertical-align: middle; /* Ensures the logo aligns vertically with the text */
+        width: 20px; /* Set a consistent width for logos */
+        height: auto; /* Maintain the aspect ratio */
+        margin-right: 10px; /* Add spacing between the logo and the name */
+      }
+        .status-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+        .row {
+          display: flex;
+          gap: 10px;
+        }
+
+      .icon {
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center; /* Centers the text inside the circle */
+              font-size: 10px; /* Adjust font size for symbols */
+              font-weight: bold;
+        }
+
+        .green-check {
+          background-color: #4caf50;
+          color: white;
+        }
+
+        .gray-minus {
+          background-color: #9e9e9e;
+          color: white;
+          
+        }
+
+        .red-x {
+          background-color: #f44336;
+          color: white;
+        }
+
+        .big-green-check {
+          background-color: #4caf50;
+          width: 30px;
+          height: 30px;
+          color: white;
+          display: flex;
+        }
+
+        .big-gray-minus {
+          background-color: #9e9e9e;
+          width: 30px;
+          height: 30px;
+          color: white;
+          display: flex;
+        }
+        .big-red-x {
+          background-color: #f44336;
+          width: 30px;
+          height: 30px;
+          color: white;
+        }
+        .last-5 {
+          display: flex;
+          gap: 5px;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+        }
+        tr:nth-child(even) {
+            background-color: #1a1a1a;
+            }
+
+            tr:nth-child(odd) {
+              background-color: #121212;
+            }
+
+            /* Add hover effect for columns 3 to 12 */
+            tr:hover td:nth-child(n+3):nth-child(-n+12) {
+              background-color: #333;
+            }
+            td.number {
+              text-align: center;
+              font-weight: bold;
+            }
+            td:nth-child(11) {
+            font-weight: bold;
+            }
+            /* General square icon styling */
+.status-icon {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin-right: 5px; /* Add spacing if needed */
+  border-radius: 3px; /* Optional: Add slight rounding for modern design */
+}
+
+/* Specific colors */
+.status-icon.blue {
+  background-color: blue;
+}
+
+.status-icon.orange {
+  background-color: orange;
+}
+
+.status-icon.red {
+  background-color: red;
+}
+
+
+/* Styling for the cell containing the number and bar */
+td.number {
+  position: relative; /* Allow positioning for the bar */
+  padding-left: 10px; /* Space to the left of the number */
+}
+
+/* Thin vertical bar */
+td.number::before {
+  content: "";
+  position: absolute;
+  left: 0; /* Place the bar at the very left of the cell */
+  top: 0;
+  width: 4px; /* Bar width */
+  height: 100%; /* Full height of the cell */
+}
+
+/* Blue bar for numbers 1, 2, 3 */
+tr.number-1 td.number::before,
+tr.number-2 td.number::before,
+tr.number-3 td.number::before {
+  background-color: blue;
+}
+
+/* Orange bar for number 4 */
+tr.number-4 td.number::before {
+  background-color: orange;
+}
+
+/* Red bar for numbers 18, 19, 20 */
+tr.number-18 td.number::before,
+tr.number-19 td.number::before,
+tr.number-20 td.number::before {
+  background-color: red;
+}
+
+    </style>
+</head>
+<body style="background-color: black;">
+    <table style="border-spacing: 10px;">
+        <th>Club</th>
+        <th></th>
+        <th></th>
+        <th>MP</th>
+        <th>W</th>
+        <th>D</th>
+        <th>L</th>
+        <th>GF</th>
+        <th>GA</th>
+        <th>GD</th>
+        <th style="color: white;">Pts</th>
+        <th>Last 5</th>
+
+<tbody>
+  <tr class="number-1">
+            <td class="number">1</td>
+            <td>
+              <img src="liverpool.png" alt="Liverpool Logo" width="40">Liverpool
+            </td>
+              <td></td>
+              <td>21</td>
+              <td>15</td>
+              <td>5</td>
+              <td>1</td>
+              <td>50</td>
+              <td>20</td>
+              <td>30</td>
+              <td>50</td>
+              <td class="last-5">
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon green-check">✔</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon big-green-check">✔</div>
+                  </div>
+              </td>
+    </tr>
+   
+    <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+        <tr class="number-2">
+          <td class="number">2</td>
+            <td>
+                <img src="arsenal.png" alt="Arsenal Logo" width="40">Arsenal
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>12</td>
+              <td>8</td>
+              <td>2</td>
+              <td>43</td>
+              <td>21</td>
+              <td>22</td>
+              <td>44</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon green-check">✔</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon big-gray-minus">−</div>
+                  </div>
+              </td>
+        </tr>
+        <tr class="horizontal-line">
+            <td colspan="12"></td>
+          </tr>
+
+        <tr class="number-3">
+          <td class="number">3</td>
+            <td>
+                <img src="nottm_forest.png" alt="Nottm Forest Logo" width="40">Nottm Forest
+            </td>
+            <td></td>
+              <td>22</td>
+              <td>13</td>
+              <td>5</td>
+              <td>4</td>
+              <td>33</td>
+              <td>22</td>
+              <td>11</td>
+              <td>44</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon green-check">✔</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon big-green-check">✔</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr class="number-4">
+          <td class="number">4</td>
+            <td>
+                <img src="chelsea.png" alt="Chelsea Logo" width="40">Chelsea
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>11</td>
+              <td>7</td>
+              <td>4</td>
+              <td>44</td>
+              <td>27</td>
+              <td>17</td>
+              <td>40</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon big-green-check">✔</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr>
+          <td class="number">5</td>
+            <td>
+                <img src="mancity.png" alt="Mancity Logo" width="40">Mancity
+            </td>
+              <td></td>
+              <td>22</td>
+              <td>11</td>
+              <td>5</td>
+              <td>6</td>
+              <td>44</td>
+              <td>29</td>
+              <td>15</td>
+              <td>38</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon big-green-check">✔</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr>
+          <td class="number">6</td>
+            <td>
+                <img src="newcastle.png" alt="Newcastle Logo" width="40">Newcastle
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>11</td>
+              <td>5</td>
+              <td>6</td>
+              <td>38</td>
+              <td>26</td>
+              <td>12</td>
+              <td>38</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon green-check">✔</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon big-red-x">✖</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+        
+        <tr>
+          <td class="number">7</td>
+            <td>
+                <img src="bourne_mouth.png" alt="Bournemouth Logo" width="40">Bournemouth
+            </td>
+              <td></td>
+              <td>22</td>
+              <td>10</td>
+              <td>7</td>
+              <td>5</td>
+              <td>36</td>
+              <td>26</td>
+              <td>10</td>
+              <td>37</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon big-green-check">✔</div>
+                  </div>
+              </td>
+        </tr>
+        <tr class="horizontal-line">
+            <td colspan="12"></td>
+          </tr>
+        
+        <tr>
+          <td class="number">8</td>
+            <td>
+                <img src="aston_villa.png" alt="Aston Villa Logo" width="40">Aston Villa
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>10</td>
+              <td>6</td>
+              <td>6</td>
+              <td>33</td>
+              <td>34</td>
+              <td>-1</td>
+              <td>36</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon red-x">✖</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon big-gray-minus">−</div>
+                  </div>
+              </td>
+        </tr>
+        <tr class="horizontal-line">
+            <td colspan="12"></td>
+          </tr>
+
+        <tr>
+          <td class="number">9</td>
+            <td>
+                <img src="brighton.png" alt="Brighton Logo" width="40">Brighton
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>8</td>
+              <td>10</td>
+              <td>4</td>
+              <td>35</td>
+              <td>30</td>
+              <td>4</td>
+              <td>34</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon big-green-check">✔</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr>
+          <td class="number">10</td>
+            <td>
+                <img src="fulham.png" alt="Fulham Logo" width="40">Fulham
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>8</td>
+              <td>9</td>
+              <td>5</td>
+              <td>34</td>
+              <td>30</td>
+              <td>4</td>
+              <td>33</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon green-check">✔</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon big-green-check">✔</div>
+                  </div>
+              </td>
+        </tr>
+         <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr>
+          <td class="number">11</td>
+            <td>
+                <img src="brentford.png" alt="BrentFord Logo" width="40">BrentFord
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>8</td>
+              <td>4</td>
+              <td>10</td>
+              <td>40</td>
+              <td>39</td>
+              <td>1</td>
+              <td>28</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon big-red-x">✖</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr>
+          <td class="number">12</td>
+            <td>
+                <img src="crystalpalace.png" alt="Crystal Palace Logo" width="40">Crystal Palace
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>6</td>
+              <td>9</td>
+              <td>7</td>
+              <td>25</td>
+              <td>28</td>
+              <td>-3</td>
+              <td>27</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon big-green-check">✔</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr>
+          <td class="number">13</td>
+            <td>
+                <img src="manunited.png" alt="Man United Logo" width="40">Man United
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>7</td>
+              <td>5</td>
+              <td>10</td>
+              <td>27</td>
+              <td>32</td>
+              <td>-5</td>
+              <td>26</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon big-red-x">✖</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr>
+          <td class="number">14</td>
+            <td>
+                <img src="westhampton.png" alt="West Ham Logo" width="40">West Ham
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>7</td>
+              <td>5</td>
+              <td>10</td>
+              <td>27</td>
+              <td>43</td>
+              <td>-16</td>
+              <td>26</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon green-check">✔</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon big-red-x">✖</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr>
+          <td class="number">15</td>
+            <td>
+                <img src="tottenham.png" alt="Tottenham Logo" width="40">Tottenham
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>7</td>
+              <td>3</td>
+              <td>12</td>
+              <td>45</td>
+              <td>35</td>
+              <td>10</td>
+              <td>24</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon red-x">✖</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon big-red-x">✖</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr>
+          <td class="number">16</td>
+            <td>
+                <img src="everton.png" alt="Everton Logo" width="40">Everton
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>5</td>
+              <td>8</td>
+              <td>9</td>
+              <td>19</td>
+              <td>28</td>
+              <td>-9</td>
+              <td>23</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon big-green-check">✔</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr>
+          <td class="number">17</td>
+            <td>
+                <img src="wolves.png" alt="Wolves Logo" width="40">Wolves
+              </td>
+              <td></td>
+              <td>23</td>
+              <td>4</td>
+              <td>4</td>
+              <td>15</td>
+              <td>32</td>
+              <td>52</td>
+              <td>-20</td>
+              <td>16</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon green-check">✔</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon big-red-x">✖</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr class="number-18">
+          <td class="number">18</td>
+            <td>
+                <img src="ipswich.png" alt="Ipswich Town Logo" width="40">Ipswich Town
+              </td>
+              <td></td>
+              <td>23</td>
+              <td>3</td>
+              <td>7</td>
+              <td>13</td>
+              <td>21</td>
+              <td>47</td>
+              <td>-26</td>
+              <td>16</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon red-x">✖</div>
+                    <div class="icon green-check">✔</div>
+                    <div class="icon gray-minus">−</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon big-red-x">✖</div>
+                  </div>
+              </td>
+        </tr>
+        <tr class="horizontal-line">
+            <td colspan="12"></td>
+          </tr>
+
+        <tr class="number-19">
+          <td class="number">19</td>
+            <td>
+                <img src="leicester.png" alt="Leicester City Logo" width="40">Leicester City
+              </td>
+              <td></td>
+              <td>22</td>
+              <td>3</td>
+              <td>5</td>
+              <td>14</td>
+              <td>23</td>
+              <td>48</td>
+              <td>-25</td>
+              <td>14</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon big-red-x">✖</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+
+        <tr class="number-20">
+          <td class="number">20</td>
+            <td>
+                <img src="southam.png" alt="Southampton Logo" width="40">Southampton
+              </td>
+              <td></td>
+              <td>23</td>
+              <td>1</td>
+              <td>3</td>
+              <td>19</td>
+              <td>16</td>
+              <td>53</td>
+              <td>-37</td>
+              <td>6</td>
+              <td>
+                <div class="status-grid">
+                  <div class="row">
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon red-x">✖</div>
+                    <div class="icon big-red-x">✖</div>
+                  </div>
+              </td>
+        </tr>
+ <tr class="horizontal-line">
+      <td colspan="12"></td>
+    </tr>
+ 
+    <table>
+    <th>Qualfications</th><br>
+    <th>Last 5 matches</th>
+
+    <tr>
+      <td><span class="status-icon blue"></span> UEFA Champions League group stage
+        <td><span class="icon green-check">✔</span>Win</td>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="status-icon orange"></span> Europa League group stage
+        <td><span class="icon gray-minus">−</span>Draw</td>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="status-icon red"></span> Relegation
+        <td><span class="icon red-x">✖</span>Loss</td>
+      </td>
+    </tr>
+
+    <tr>
+     
+    </tr>
+  </table>
+</tbody>
+    </table>
+</body>
+</html>
